@@ -40,26 +40,24 @@ package easy
  */
 
 fun main() {
-    plusOne(listOf(9, 9, 9).toIntArray()).forEach { println(it)}
+    plusOne(listOf(9, 9, 9).toIntArray()).forEach { println(it) }
 }
 
 fun plusOne(digits: IntArray): IntArray {
     var increment = 1
 
-    for(indx in digits.indices.reversed()) {
+    for (indx in digits.indices.reversed()) {
         if (increment == 1) {
             val sum = digits[indx] + increment
             if (sum >= 10) {
-                digits[indx] = sum%10
-            }
-            else{
+                digits[indx] = sum % 10
+            } else {
                 digits[indx] = sum
                 increment = 0
             }
         }
     }
-    val result = if(increment == 1) {
+    return if (increment == 1) {
         IntArray(0).plus(1).plus(digits)
     } else digits
-    return result
 }
